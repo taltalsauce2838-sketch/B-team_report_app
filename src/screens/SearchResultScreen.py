@@ -10,3 +10,5 @@ class SearchResultScreen(tk.Frame):
                   command=lambda: master.show_frame("DetailScreen")).pack(expand=True)
         #
         result = self.master.search_result
+
+        
