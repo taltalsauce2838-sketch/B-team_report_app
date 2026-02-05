@@ -9,3 +9,5 @@ class NewRegistrationHandover(tk.Frame):
         tk.Button(self, text="検索",
                   command=lambda: master.show_frame("SearchScreen")).pack(expand=True)
 
+
+
