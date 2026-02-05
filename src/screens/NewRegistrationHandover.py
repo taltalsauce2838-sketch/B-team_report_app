@@ -8,3 +8,4 @@ class NewRegistrationHandover(tk.Frame):
         tk.Label(self, text="新規登録 Handover").pack()
         tk.Button(self, text="検索",
                   command=lambda: master.show_frame("SearchScreen")).pack(expand=True)
+
