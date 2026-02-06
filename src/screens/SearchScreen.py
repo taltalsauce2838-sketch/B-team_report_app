@@ -1,6 +1,7 @@
 
 import tkinter as tk
 from tkinter import messagebox, scrolledtext
+from screens.DBAccess import DBAccess
 
 # 検索
 class SearchScreen(tk.Frame):
@@ -78,7 +79,8 @@ class SearchScreen(tk.Frame):
         print(sql)
         print(params)
 
-        self.master.frames["SearchResultScreen"].set_search(sql, params)
+        # self.master.frames["SearchResultScreen"].set_search(sql, params)
+        self.master.search_result = DBAccess().search(sql ,params)
         self.master.show_frame("SearchResultScreen")
         self.master.focus_set() 
         return "break" 

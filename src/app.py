@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from screens.SearchScreen import SearchScreen
 from screens.SearchResultScreen import SearchResultScreen
@@ -37,4 +36,8 @@ class App(tk.Tk):
     # show_frame は文字列で画面指定
     def show_frame(self, screen_name):
         frame = self.frames[screen_name]
+        # 画面を表示する前にデータを更新する
+        if screen_name in ("DetailScreen", "SearchResultScreen"):
+            frame.update_data()
+
         frame.tkraise()
