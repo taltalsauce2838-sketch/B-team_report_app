@@ -1,5 +1,6 @@
 
 import tkinter as tk
+from screens.DBAccess import DBAccess
 
 # 検索結果
 class SearchResultScreen(tk.Frame):
@@ -14,5 +15,8 @@ class SearchResultScreen(tk.Frame):
         #
         result = self.master.search_result
 
-#    def list_task(connection):
+        db = DBAccess().search()
+        print(db)
+        
+
 
