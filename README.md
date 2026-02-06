@@ -30,24 +30,20 @@
 - Handover
 - Incident
 
----
-
-## 📁 ディレクトリ構成
-
+```
 src/
-├─ main.py # エントリーポイント
-├─ app.py # アプリ管理
-├─ utils.py # 共通処理
+├─ main.py                 # エントリーポイント
+├─ app.py                  # アプリ管理
+├─ utils.py                # 共通処理
 └─ screens/
-├─ SearchScreen.py
-├─ SearchResultScreen.py
-├─ DetailScreen.py
-├─ DBAccess.py
-├─ NewRegistrationStandup.py
-├─ NewRegistrationHandover.py
-└─ NewRegistrationIncident.py
-
----
+   ├─ SearchScreen.py
+   ├─ SearchResultScreen.py
+   ├─ DetailScreen.py
+   ├─ DBAccess.py
+   ├─ NewRegistrationStandup.py
+   ├─ NewRegistrationHandover.py
+   └─ NewRegistrationIncident.py
+```
 
 ## 🗄️ DBアクセス
 DB処理は `DBAccess.py` に集約。
