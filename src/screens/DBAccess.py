@@ -3,7 +3,7 @@ import pymysql
 class DBAccess:
     def __init__(self):
         self.MYSQL_USERNAME = "root"
-        self.MYSQL_PASSWORD = "sodatech"
+        self.MYSQL_PASSWORD = "root"
         self.MYSQL_DATABASE = "standup"
 
     def get_connection(self):
