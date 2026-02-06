@@ -23,7 +23,7 @@ class SearchScreen(tk.Frame):
         #検索条件用テキストボックス及びエンター入力受付
         self.text = tk.Text(self, font=("Arial", 14), wrap="word", height=1)
         self.text.pack(anchor="w", padx=10, pady=5)
-        self.text.insert("1.0", "フォント確認テスト" )
+        self.text.insert("1.0", "" )
         self.text.bind("<Return>", self.on_search)
 
         #チェックボックス管理
@@ -51,13 +51,34 @@ class SearchScreen(tk.Frame):
         if len(types) in (0, 3) :
             types = []
 
-        for serchword in searchwords :
-            print(serchword)
-        for type in types :
-            print(type)
+        where_clauses = []
+        params = []
 
+        if len(searchwords) >= 1:
+            keywords = []
+            for searchword in searchwords:
+                keywords.append("body LIKE %s")
+                params.append(f"%{searchword}%")
+            where_clauses.append("(" + " OR ".join(keywords) + ")")
 
-        self.master.frames["SearchResultScreen"].set_result(value)
+        # type検索
+        if len(types) >= 1:
+            type_conditions = []
+            for type in types:
+                type_conditions.append("type = %s")
+                params.append(type)
+            where_clauses.append("(" + " OR ".join(type_conditions) + ")")
+
+        # SQL生成
+        sql = "SELECT * FROM records"
+
+        if where_clauses:
+            sql += " WHERE " + " AND ".join(where_clauses)
+
+        print(sql)
+        print(params)
+
+        self.master.frames["SearchResultScreen"].set_search(sql, params)
         self.master.show_frame("SearchResultScreen")
         self.master.focus_set() 
         return "break" 
