@@ -42,12 +42,13 @@ class DBAccess:
             exit(1)
         finally:
             conn.close()
-    def get(self):
+    def get(self, id):
         conn = self.get_connection()
         try:
             with conn.cursor() as cursor:
-                #ここで各DBアクセスを実施する
-                pass
+                sql = "SELECT * FROM records WHERE id = %s"
+                cursor.execute(sql, (id,))
+                return cursor.fetchone()
         except pymysql.MySQLError as e:
             print(f"DB処理エラー: {e}")
             conn.rollback()
