@@ -26,9 +26,10 @@
 - Slack / Jira / Notion 形式コピー
 
 ### ➕ 新規登録画面
-- Standup
-- Handover
-- Incident
+以下の三種類の登録を行う
+- 日報：Standup
+- 引継ぎ：Handover
+- 障害/問い合わせ：Incident
 
 ```
 src/
