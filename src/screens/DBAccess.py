@@ -55,7 +55,7 @@ class DBAccess:
 
             num = 1
             for result in results:
-                print(result.get("id")," ",result.get("title")," ",result.get("type"))
+ #               print(result.get("id")," ",result.get("title")," ",result.get("type"))
                 num = num + 1
 
             return results

@@ -76,8 +76,8 @@ class SearchScreen(tk.Frame):
         if where_clauses:
             sql += " WHERE " + " AND ".join(where_clauses)
 
-        print(sql)
-        print(params)
+#        print(sql)
+#        print(params)
 
         # self.master.frames["SearchResultScreen"].set_search(sql, params)
         self.master.search_result = DBAccess().search(sql ,params)
