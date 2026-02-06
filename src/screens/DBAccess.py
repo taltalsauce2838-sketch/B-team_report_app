@@ -30,12 +30,26 @@ class DBAccess:
             exit(1)
         finally:
             conn.close()
-    def search(self):
+    def search(self, sql ,params):
         conn = self.get_connection()
         try:
             with conn.cursor() as cursor:
                 #ここで各DBアクセスを実施する
-                pass
+                cursor.execute(sql, params)
+
+                results = cursor.fetchall()
+
+            if len(results) == 0:
+                print("データがありません")
+                return
+
+            num = 1
+            for result in results:
+                print(result.get("id")," ",result.get("title")," ",result.get("type"))
+                num = num + 1
+
+            return results
+                
         except pymysql.MySQLError as e:
             print(f"DB処理エラー: {e}")
             conn.rollback()
