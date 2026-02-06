@@ -22,7 +22,7 @@ class NewRegistrationIncident(tk.Frame):
             # ラベルの配置
            
             if field=="種別":
-                entry = "Incident"
+                entry = "incident"
             else:
                 # Entryの生成と辞書への格納
                 tk.Label(self, text=field).pack(anchor="w", padx=10)
