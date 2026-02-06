@@ -12,6 +12,7 @@ class App(tk.Tk):
         super().__init__()
         #
         self.search_result = ""
+        self.report_id = None
         #
         self.title("title")
         self.geometry("600x400")
