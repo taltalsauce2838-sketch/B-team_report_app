@@ -71,6 +71,25 @@ API 設計 障害
 ※ 全選択 / 無選択は同一扱い（全件対象）
 
 ---
+### DB構成
+以下CREATEの形式で作成とする。
+```
+CREATE TABLE standup.records (
+        id INT auto_increment NOT NULL,
+        type varchar(10) NOT NULL,
+        title varchar(20) NULL,
+        body VARCHAR(100) NOT NULL,
+        meta_json json NOT NULL,
+        created_at DATETIME NOT NULL,
+        updated_at DATETIME NOT NULL,
+        CONSTRAINT records_pk PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8
+COLLATE=utf8_general_ci;
+
+```
+---
 
 ## 🚀 起動方法
 ### 起動
