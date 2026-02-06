@@ -30,13 +30,12 @@ class DBAccess:
             exit(1)
         finally:
             conn.close()
-    def search(self):
+    def search(self, sql ,params):
         conn = self.get_connection()
         try:
             with conn.cursor() as cursor:
                 #ここで各DBアクセスを実施する
-                sql = "SELECT * FROM records"
-                cursor.execute(sql)
+                cursor.execute(sql, params)
 
                 results = cursor.fetchall()
 
