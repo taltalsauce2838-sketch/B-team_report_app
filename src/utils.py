@@ -29,4 +29,4 @@ def cnv_txt(txt):
         "logs_checked": "確認済みログ",
         "hypothesis": "仮説",
     }
-    return text_mapping.get(txt, txt)
+    return text_mapping.get(txt.lower(), txt)
