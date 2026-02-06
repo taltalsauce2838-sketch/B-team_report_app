@@ -20,7 +20,7 @@ class NewRegistrationStandup(tk.Frame):
         # 3. ループによる一括生成
         for field in fields:
             if field=="種別":
-                entry = "Standup"
+                entry = "standup"
             else:
                 # Entryの生成と辞書への格納
                 tk.Label(self, text=field).pack(anchor="w", padx=10)
